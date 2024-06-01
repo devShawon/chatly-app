@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Headings from '../../components/utilities/Headings'
 import Input from '../../components/utilities/Input'
@@ -8,6 +9,12 @@ import Paragraph from '../../components/utilities/Paragraph';
 import Linking from '../../components/utilities/Linking';
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const handleSignup = () => {
+        navigate('/registration')
+    }
+
   return (
     <section>
         <div className='wrap'>
@@ -50,7 +57,7 @@ const Login = () => {
                     </div>
                     <div className='loginbox mt-3'>
                         <Paragraph className= 'text-sm font-poppins text-dark-blue'>
-                            Don't have an Account? <Linking className= 'text-mantine-blue text-sm font-poppins font-semibold' text= 'Sign Up' />
+                            Don't have an Account? <Linking onClick={handleSignup} className= 'text-mantine-blue text-sm font-poppins font-semibold' text= 'Sign Up' />
                         </Paragraph>
                     </div>
             </div>

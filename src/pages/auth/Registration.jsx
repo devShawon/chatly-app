@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile  } from "firebase/auth";
+import { getDatabase, push, ref, set } from "firebase/database";
+import { useNavigate } from 'react-router-dom';
 
 import Headings from '../../components/utilities/Headings'
 import Input from '../../components/utilities/Input'
@@ -9,10 +11,14 @@ import { AiFillGoogleSquare } from 'react-icons/ai'
 import Paragraph from '../../components/utilities/Paragraph'
 import Linking from '../../components/utilities/Linking'
 import Regvalid from '../../components/validation/Regvalid';
+import Toastify from '../../components/utilities/Toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Registration = () => {
 
   const auth = getAuth();
+  const db = getDatabase();
+  const navigate = useNavigate();
   const [passErr, setPassErr] = useState ('')
 
   const formik = useFormik({
@@ -24,24 +30,46 @@ const Registration = () => {
     },
     validationSchema: Regvalid,
     onSubmit: (values, actions) => {
-      console.log(values);
       if(values.password != values.confirm_pass){
         setPassErr('The password you entered do not match.')
       }else{
         setPassErr(null)
       }
-      createUserWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
-        console.log(userCredential);
+        const user = userCredential.user
+        sendEmailVerification(auth.currentUser)
+        .then(() => {
+          updateProfile(auth.currentUser, {
+            displayName: values.full_name,
+            photoURL: "https://example.com/jane-q-user/profile.jpg"
+          }).then(() => {
+            console.log(user);
+            set(push(ref(db, 'users')), {
+              displayName: values.full_name,
+              email: user.email,
+              profile_picture : user.photoURL
+            }).then(()=>{
+              toast.success('Registrantion successful...')
+              actions.resetForm();
+              setTimeout(()=> {
+                navigate('/')
+              },2000)
+            })
+          }).catch((error) => {
+            console.log(error);
+          });
+        });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error('sorry! Registration failed...')
       });
     },
   });
 
   return (
     <section>
+      <Toastify />
       <div className='wrap'>
         <div className='flex items-center flex-col'>
           <div className='loginbox'>
