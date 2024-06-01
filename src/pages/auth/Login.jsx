@@ -30,7 +30,7 @@ const Login = () => {
                             </form> 
                             <Headings 
                                 Heading={'h4'}
-                                className= 'flex justify-center mt-7 text-lg text-dark-blue font-poppins font-semibold uppercase relative after:absolute after:content-[""] after:h-[1px] after:w-[40%] after:bg-pixel-white after:left-0 after:top-2/4 before:absolute before:content-[""] before:h-[1px] before:w-[40%] before:bg-pixel-white before:right-0 before:top-2/4'
+                                className= 'or text-dark-blue'
                                 text= 'or'
                             />
                         </div>

@@ -10,6 +10,9 @@
         @apply max-w-container mx-auto
     }
     .loginInputbox {
-        @apply w-full border border-pixel-white py-2 px-4 bg-dust-white rounded-md outline-none
+        @apply w-full bg-gray-50 border border-pixel-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-dust-white dark:border-pixel-white dark:placeholder-gray-400 dark:text-dark-blue dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none
+    }
+    .or {
+        @apply w-full flex justify-center my-4 text-reval-white font-poppins font-semibold uppercase relative after:absolute after:content-[""] after:h-[1px] after:w-[40%] after:bg-pixel-white after:left-0 after:top-2/4 before:absolute before:content-[""] before:h-[1px] before:w-[40%] before:bg-pixel-white before:right-0 before:top-2/4
     }
   }
