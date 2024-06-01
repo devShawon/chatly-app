@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .loginbox {
+        @apply w-[420px] px-12 py-4 border border-pixel-white mt-[60px] flex flex-col items-center
+    }
+  }
