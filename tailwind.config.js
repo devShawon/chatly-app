@@ -12,11 +12,14 @@ export default {
       colors: {
         'dark-blue': '#282938',
         'tory-blue': '#385185',
+        'mantine-blue': '#4cb5f9',
+        'star-blue': '#0095f6',
+        'deep-blue': '#1877f2',
         'black': '#000',
         'white': '#fff',
         'dust-white': '#fafafa',
+        'reval-white': '#737373',
         'pixel-white': '#dbdbdb',
-        'mantine-blue': '#4cb5f9',
       },
       fontFamily: {
         'poppins': '"Poppins", sans-serif',

@@ -4,6 +4,12 @@
 
 @layer components {
     .loginbox {
-        @apply w-[420px] px-12 py-4 border border-pixel-white mt-[60px] flex flex-col items-center
+        @apply w-[420px] px-12 py-4 border border-pixel-white mt-[40px] flex flex-col items-center
+    }
+    .wrap {
+        @apply max-w-container mx-auto
+    }
+    .loginInputbox {
+        @apply w-full border border-pixel-white py-2 px-4 bg-dust-white rounded-md outline-none
     }
   }
