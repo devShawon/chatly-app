@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik'
 import { ToastWrapper, toast } from 'keep-react';
 
@@ -13,14 +14,19 @@ import Linking from '../../components/utilities/Linking';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import Loginvalidation from '../../components/validation/Loginvalidation'
 import { ThreeDots } from 'react-loader-spinner';
+import { userValue } from '../../slices/userSlice';
 
 const Login = () => {
     const auth = getAuth();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [showPass, setShowPass] = useState(false)
     const [loader, setLoader] = useState(false)
+    const [err, setErr] = useState('')
+    const [showErr, setShowErr] = useState(false)
 
+    // formik validation here ...
     const formik = useFormik({
         initialValues: {
             password: '',
@@ -33,7 +39,8 @@ const Login = () => {
             .then((userCredential) => {
             const user = userCredential.user
                 if(user.emailVerified == true){
-                    console.log(userCredential);
+                    localStorage.setItem('loginUser', JSON.stringify(user))
+                    dispatch(userValue(user))
                     toast.success('Login seccessful...')
                     setLoader(false)
                     setTimeout(() => {
@@ -41,11 +48,14 @@ const Login = () => {
                     }, 1000);
                 }else{
                     setLoader(false)
-                    toast.error('Email not verify...')
+                    setShowErr(true)
+                    setErr('Email must be verify to continue.')
                 }
             })
             .catch((error) => {
                 toast.error('invalid credential ...')
+                setErr('Invalid Credential..')
+                setShowErr(true)
                 setLoader(false)
             });
         },
@@ -59,9 +69,15 @@ const Login = () => {
                     <div className='loginbox'>
                         <Headings 
                             Heading={'h1'}
-                            className= 'text-5xl font-arizonia font-semibold text-center mt-5 mb-12'
+                            className= 'text-5xl font-arizonia font-semibold text-center mt-5 mb-7'
                             text= 'flockey'
                         />
+                        {
+                            showErr ? 
+                            <Paragraph className= 'w-full text-sm font-poppins text-center border border-[#e2c822] bg-[#fff9d7] py-2 mb-4' text={err}/>
+                            :
+                            null
+                        }
                         <div className='w-full'>
                             <form action="" onSubmit={formik.handleSubmit}>
                                 <div className=''>

@@ -40,17 +40,16 @@ const Registration = () => {
         setPassErr(null)
         setLoader(true)
       }
-      createUserWithEmailAndPassword(auth, values.email, values.password)
+      createUserWithEmailAndPassword(auth, values.email, values.password) // Create user accout method ..
       .then((userCredential) => {
         const user = userCredential.user
-        sendEmailVerification(auth.currentUser)
+        sendEmailVerification(auth.currentUser)    // Email verification link send method ..
         .then(() => {
-          updateProfile(auth.currentUser, {
+          updateProfile(auth.currentUser, {   // user's Profile name update method
             displayName: values.full_name,
             photoURL: "https://example.com/jane-q-user/profile.jpg"
           }).then(() => {
-            console.log(user);
-            set(push(ref(db, 'users')), {
+            set(push(ref(db, 'users')), {   // Realtime data set ..
               displayName: values.full_name,
               email: user.email,
               profile_picture : user.photoURL
