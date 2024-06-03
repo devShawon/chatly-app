@@ -78,7 +78,7 @@ const Registration = () => {
     <section>
       {
         loader && 
-        <div className='w-full h-[100vh] absolute top-0 left-0 z-[9999] flex items-center justify-center bg-[#00000060]'>
+        <div className='w-full h-[200%] absolute top-0 left-0 z-[9999] flex items-center justify-center bg-[#00000060]'>
           <RotatingLines
             visible={true}
             height="90"

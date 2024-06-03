@@ -10,6 +10,7 @@ import Login from './pages/auth/Login';
 import Registration from './pages/auth/Registration';
 import Rootlayout from './components/layouts/Rootlayout';
 import Error from './pages/error/Error';
+import Forget from './pages/auth/Forget';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
         </Route>
           <Route path='/' element={<Login />} />
           <Route path='/registration' element={<Registration />} />
+          <Route path='/reset-password' element={<Forget />} />
           <Route path='*' element={<Error />} />
       </Route>
     )

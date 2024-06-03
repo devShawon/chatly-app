@@ -3,7 +3,8 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik'
-import { ToastWrapper, toast } from 'keep-react';
+import { Modal, ToastWrapper, toast } from 'keep-react';
+import { userValue } from '../../slices/userSlice';
 
 import Headings from '../../components/utilities/Headings'
 import Input from '../../components/utilities/Input'
@@ -14,7 +15,6 @@ import Linking from '../../components/utilities/Linking';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import Loginvalidation from '../../components/validation/Loginvalidation'
 import { ThreeDots } from 'react-loader-spinner';
-import { userValue } from '../../slices/userSlice';
 
 const Login = () => {
     const auth = getAuth();
@@ -143,11 +143,14 @@ const Login = () => {
                                 text= 'Login with Google'
                             />
                         </div>
-                        <Headings 
-                            Heading={'h3'}
-                            className= 'mt-6 font-poppins text-xs text-dark-blue font-normal cursor-pointer hover:underline'
-                            text= 'Forgot Password?'
-                        />
+                        <div>
+                            <Headings 
+                                Heading={'h3'}
+                                className= 'mt-6 font-poppins text-xs text-dark-blue font-normal cursor-pointer hover:underline'
+                                text= 'Forgot Password?'
+                                onClick={()=>navigate('reset-password')}
+                            />
+                        </div>
                     </div>
                     <div className='loginbox mt-3'>
                         <Paragraph className= 'text-sm font-poppins text-dark-blue'>

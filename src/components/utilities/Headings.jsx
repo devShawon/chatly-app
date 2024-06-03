@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Headings = ({Heading, text, className}) => {
+const Headings = ({Heading, text,onClick, className}) => {
   return (
-    <Heading className={className}>{text}</Heading>
+    <Heading onClick={onClick} className={className}>{text}</Heading>
   )
 }
 
