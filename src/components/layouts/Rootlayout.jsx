@@ -5,8 +5,10 @@ import { Outlet } from 'react-router-dom'
 const Rootlayout = () => {
   return (
     <>
+      <div className='flex'>
         <Navbar />
         <Outlet />
+      </div>
     </> 
   )
 }

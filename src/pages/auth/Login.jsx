@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik'
-import { Modal, ToastWrapper, toast } from 'keep-react';
+import { ToastWrapper, toast } from 'keep-react';
 import { userValue } from '../../slices/userSlice';
 
 import Headings from '../../components/utilities/Headings'
@@ -15,6 +15,7 @@ import Linking from '../../components/utilities/Linking';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import Loginvalidation from '../../components/validation/Loginvalidation'
 import { ThreeDots } from 'react-loader-spinner';
+import { BiError } from "react-icons/bi";
 
 const Login = () => {
     const auth = getAuth();
@@ -74,7 +75,10 @@ const Login = () => {
                         />
                         {
                             showErr ? 
-                            <Paragraph className= 'w-full text-sm font-poppins text-center border border-[#e2c822] bg-[#fff9d7] py-2 mb-4' text={err}/>
+                            <div className= 'w-full flex items-center justify-center gap-x-2 text-sm font-poppins border border-[#e2c822] bg-[#fff9d7] py-2 mb-4' >
+                                <BiError className='text-lg' />
+                                <Paragraph text={err}/>
+                            </div>
                             :
                             null
                         }

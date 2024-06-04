@@ -17,3 +17,7 @@
         @apply w-full flex justify-center my-4 text-reval-white font-poppins font-semibold uppercase relative after:absolute after:content-[""] after:h-[1px] after:w-[40%] after:bg-pixel-white after:left-0 after:top-2/4 before:absolute before:content-[""] before:h-[1px] before:w-[40%] before:bg-pixel-white before:right-0 before:top-2/4
     }
   }
+
+  .a{
+    /* color: #e9e9e9; */
+  }
