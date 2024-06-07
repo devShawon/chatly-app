@@ -181,7 +181,7 @@ const Registration = () => {
                     }
                   </div>
                 </div>
-                <Paragraph className= 'text-sm text-center text-reval-white mt-4'>People who use our service may have uploaded your contact   information to Chatlify. Learn More</Paragraph>
+                <Paragraph className= 'text-sm text-center text-reval-white mt-4'>People who use our service may have uploaded your contact   information to Flockey. Learn More</Paragraph>
                 <Paragraph className= 'text-sm text-center text-reval-white mt-4'>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</Paragraph>
                 <Button type='submit' className='w-full bg-mantine-blue hover:bg-star-blue text-white font-poppins py-2 text-md mt-5 rounded-lg font-semibold' text= 'Sign up' />
               </form>

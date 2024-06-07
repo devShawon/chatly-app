@@ -3,7 +3,7 @@ import Image from '../../components/utilities/Image'
 import { Button, Empty } from 'keep-react'
 import { useNavigate } from 'react-router-dom'
 
-const Error = () => {
+const ErrorPage = () => {
   const navigate = useNavigate();
 
   return (
@@ -19,9 +19,9 @@ const Error = () => {
       <Empty.Description>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.
       </Empty.Description>
-      <Button onClick={()=>navigate(-1)} variant="outline">Go to home</Button>
+      <Button className='py-2 px-10' onClick={()=>navigate(-1)} variant="outline">Back</Button>
     </Empty>
   )
 }
 
-export default Error
+export default ErrorPage

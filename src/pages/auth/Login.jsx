@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik'
 import { ToastWrapper, toast } from 'keep-react';
 import { userValue } from '../../slices/userSlice';
@@ -21,6 +21,7 @@ const Login = () => {
     const auth = getAuth();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const userdata = useSelector((state) => state.userdata.value)
 
     const [showPass, setShowPass] = useState(false)
     const [loader, setLoader] = useState(false)
@@ -61,6 +62,15 @@ const Login = () => {
             });
         },
       });
+
+      // direct show homepage ...
+      useEffect(()=> {
+        if(userdata){
+            navigate('/home')
+        }else{
+            navigate('/')
+        }
+      },[])
 
   return (
     <section>
@@ -121,7 +131,7 @@ const Login = () => {
                                 <Button type= 'submit' className='w-full bg-mantine-blue text-white font-poppins py-2 text-lg mt-5 rounded-lg font-semibold flex justify-center' text= {
                                     loader ? <ThreeDots
                                         visible={true}
-                                        height="40"
+                                        height="30"
                                         width="40"
                                         color="#fff"
                                         radius="9"

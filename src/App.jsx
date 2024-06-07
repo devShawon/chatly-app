@@ -5,11 +5,11 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import HomePage from './pages/home/HomePage';
+import HomePage from './pages/homepage/HomePage';
 import Login from './pages/auth/Login';
 import Registration from './pages/auth/Registration';
 import Rootlayout from './components/layouts/Rootlayout';
-import Error from './pages/error/Error';
+import ErrorPage from './pages/errorpage/ErrorPage';
 import Forget from './pages/auth/Forget';
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
           <Route path='/' element={<Login />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/reset-password' element={<Forget />} />
-          <Route path='*' element={<Error />} />
+          <Route path='*' element={<ErrorPage />} />
       </Route>
     )
   );
