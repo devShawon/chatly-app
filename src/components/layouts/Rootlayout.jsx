@@ -9,7 +9,7 @@ const Rootlayout = () => {
         <div className='wrap'>        
           <div className='flex'>
             <div className='fixed'>
-            <Navbar />
+              <Navbar />
             </div>
             <Outlet />
           </div>

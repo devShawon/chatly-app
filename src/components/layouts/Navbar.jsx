@@ -7,12 +7,13 @@ import { userValue } from '../../slices/userSlice';
 
 import Headings from '../utilities/Headings'
 import Button from '../utilities/Button';
-import { MdHome } from "react-icons/md";
+import Linking from '../utilities/Linking';
+import { MdGroups, MdHome } from "react-icons/md";
 import { GoSearch } from 'react-icons/go';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { RiMessengerLine } from 'react-icons/ri';
 import { LuActivitySquare, LuPlusSquare } from 'react-icons/lu';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaUserAlt, FaUserFriends } from 'react-icons/fa';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { CiDark, CiSaveDown2 } from 'react-icons/ci';
 import { BiMessageAltError } from 'react-icons/bi';
@@ -43,29 +44,47 @@ const Navbar = () => {
 
             {/* Navlist start here ... */}
             <ul className='flex flex-col gap-y-1'>
-              <li className='navlistitem'>
-                <MdHome className='text-2xl' />
-                <NavLink className= 'text-md font-poppins font-normal capitalize'>home</NavLink>
+              <li>
+                <NavLink to= '/home' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                  <MdHome className='text-2xl' />
+                  home
+                  </NavLink>
               </li>
-              <li className='navlistitem'>
-                <GoSearch className='text-2xl' />
-                <NavLink className= 'text-md font-poppins font-normal capitalize'>search</NavLink>
+              <li>
+                <NavLink to= 'search' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                  <GoSearch className='text-2xl' />
+                  search
+                </NavLink>
               </li>
-              <li className='navlistitem'>
-                <RiMessengerLine className='text-2xl' />
-                <NavLink className= 'text-md font-poppins font-normal capitalize'>messages</NavLink>
+              <li>
+                <NavLink to= '/message' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                  <RiMessengerLine className='text-2xl' />
+                  messages
+                </NavLink>
               </li>
-              <li className='navlistitem'>
-                <IoMdNotificationsOutline className='text-2xl' />
-                <NavLink className= 'text-md font-poppins font-normal capitalize'>notification</NavLink>
+              <li>
+                <NavLink to= '/friends' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                  <FaUserFriends className='text-2xl' />
+                  friends
+                </NavLink>
               </li>
-              <li className='navlistitem'>
-                <LuPlusSquare className='text-2xl' />
-                <NavLink className= 'text-md font-poppins font-normal capitalize'>create</NavLink>
+              <li>
+                <NavLink to= '/notification' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                  <IoMdNotificationsOutline className='text-2xl' />
+                  notification
+                </NavLink>
               </li>
-              <li className='navlistitem'>
-                <div className='w-[30px] h-[30px] bg-red-500 rounded-full'></div>
-                <NavLink className= 'text-md font-poppins font-normal capitalize'>profile</NavLink>
+              <li>
+                <NavLink to= '/group' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                  <MdGroups className='text-3xl p-1 border border-dark-blue rounded-full' />
+                  group
+                </NavLink>
+              </li>
+              <li >
+                <NavLink to= '/profile' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                  <div className='w-[30px] h-[30px] bg-red-500 rounded-full'></div>
+                  profile
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -82,33 +101,49 @@ const Navbar = () => {
             {/* More item list start here ... */}
             {
               showItem &&
-              <div className='w-[260px] bg-[#f4f4f4] absolute bottom-full left-0 shadow rounded-xl py-4 px-3'>
+              <div className='w-[230px] bg-[#f4f4f4] absolute bottom-[120%] left-0 shadow rounded-xl py-4 px-3'>
                 <ul className='flex flex-col gap-y-1'>
-                  <li className='navlistitem'>
-                    <IoSettingsOutline className='text-2xl' />
-                    <NavLink className= 'text-base font-poppins font-normal capitalize'>settings</NavLink>
+                  <li>
+                    <Linking to='/settings' className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                      <IoSettingsOutline className='text-xl' />
+                      settings
+                    </Linking>
                   </li>
-                  <li className='navlistitem'>
-                    <LuActivitySquare className='text-2xl' />
-                    <NavLink className= 'text-base font-poppins font-normal capitalize'>your activity</NavLink>
+                  <li>
+                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                      <FaUserAlt className='text-md' />
+                      users
+                    </Linking>
                   </li>
-                  <li className='navlistitem'>
-                    <CiSaveDown2 className='text-2xl' />
-                    <NavLink className= 'text-base font-poppins font-normal capitalize'>saved</NavLink>
+                  <li>
+                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                      <LuActivitySquare className='text-lg' />
+                      your activity
+                    </Linking>
                   </li>
-                  <li className='navlistitem'>
-                    <CiDark className='text-2xl' />
-                    <NavLink className= 'text-base font-poppins font-normal capitalize'>switch appearance</NavLink>
+                  <li>
+                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                      <CiSaveDown2 className='text-lg' />
+                      saved
+                    </Linking>
                   </li>
-                  <li className='navlistitem'>
-                    <BiMessageAltError className='text-2xl' />
-                    <NavLink className= 'text-base font-poppins font-normal'>Report a problem</NavLink>
+                  <li>
+                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                      <CiDark className='text-xl' />
+                      switch appearance
+                    </Linking>
                   </li>
-                  <li className='p-3 hover:bg-dust-white cursor-pointer'>
-                    <NavLink className= 'text-base font-poppins font-normal'>Switch accounts</NavLink>
+                  <li>
+                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                      <BiMessageAltError className='text-lg' />
+                      Report a problem
+                    </Linking>
                   </li>
-                  <li onClick={()=>setIsOpen(true)} className='p-3 hover:bg-dust-white cursor-pointer'>
-                    <NavLink className= 'text-base font-poppins font-normal'>Log out</NavLink>
+                  <li>
+                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>switch accounts</Linking>
+                  </li>
+                  <li onClick={()=>setIsOpen(true)}>
+                    <Linking to= '#' className= 'navlistitem text-sm font-poppins font-normal'>Log out</Linking>
                   </li>
                 </ul>
               </div>

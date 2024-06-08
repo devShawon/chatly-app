@@ -23,6 +23,7 @@ export default {
         'dust-white': '#fafafa',
         'reval-white': '#737373',
         'pixel-white': '#dbdbdb',
+        'errigal-white': '#f0f2f5',
       },
       fontFamily: {
         'poppins': '"Poppins", sans-serif',

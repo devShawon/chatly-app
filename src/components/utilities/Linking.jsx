@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Linking = ({text, className, onClick}) => {
+const Linking = ({to, text, className, onClick, children}) => {
   return (
-    <Link className={className} onClick={onClick}>{text}</Link>
+    <Link to={to} className={className} onClick={onClick}>{text}{children}</Link>
   )
 }
 
