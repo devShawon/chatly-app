@@ -18,6 +18,8 @@ import Notification from './pages/notification/Notification';
 import Group from './pages/group/Group';
 import Profile from './pages/profile/Profile';
 import Settings from './pages/settings/Settings';
+import FriendsLayout from './pages/friendspage/FriendsLayout';
+import FriendList from './pages/friendspage/FriendList';
 
 const App = () => {
 
@@ -33,7 +35,9 @@ const App = () => {
             <Route path='/profile' element={<Profile />} />
             <Route path='/settings' element={<Settings />} />
           </Route>
-            <Route path='/friends' element={<Friends />} />
+          <Route path='/friends' element= {<FriendsLayout />}>
+              <Route path='/friends/list' element={<FriendList />} />
+          </Route>
         </Route>
           <Route path='/' element={<Login />} />
           <Route path='/registration' element={<Registration />} />

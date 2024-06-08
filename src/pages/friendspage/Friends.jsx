@@ -6,7 +6,7 @@ import { FaChevronRight, FaUserCheck, FaUserCog, FaUserMinus, FaUserPlus } from 
 
 const Friends = () => {
   return (
-    <section>
+    <section className='fixed'>
       <div className='wrap'>
         <div className='w-[400px] shadow bg-white h-[100vh] '>
           <div className=''>
@@ -27,14 +27,14 @@ const Friends = () => {
             </div>
           </div>
           <ul className='flex flex-col ml-3 mt-5'>
-            <li >
-              <NavLink className= 'text-lg font-medium capitalize'>
+          <li >
+              <NavLink to= '/friends/list' className= 'text-lg font-medium capitalize'>
                 <div className='hover:bg-pixel-white p-2 flex items-center justify-between'>
                   <div className='flex items-center gap-x-3'>
                     <div className='p-3 bg-errigal-white rounded-full'>
-                      <FaUserMinus className='text-xl' />
+                      <FaUserCheck className='text-xl' />
                     </div>
-                    friend requests
+                    all friends
                   </div>
                   <FaChevronRight className='text-xl text-reval-white mr-5' />
                 </div>
@@ -45,9 +45,9 @@ const Friends = () => {
                 <div className='hover:bg-pixel-white p-2 flex items-center justify-between'>
                   <div className='flex items-center gap-x-3'>
                     <div className='p-3 bg-errigal-white rounded-full'>
-                      <FaUserCheck className='text-xl' />
+                      <FaUserMinus className='text-xl' />
                     </div>
-                    all friends
+                    friend requests
                   </div>
                   <FaChevronRight className='text-xl text-reval-white mr-5' />
                 </div>
