@@ -85,7 +85,7 @@ const Friends = () => {
                     <div className='p-3 bg-errigal-white rounded-full'>
                       <FaUserCog className='text-xl' />
                     </div>
-                    custon lists
+                    custom lists
                   </div>
                   <FaChevronRight className='text-xl text-reval-white mr-5' />
                 </div>

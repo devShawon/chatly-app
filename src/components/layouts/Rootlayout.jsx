@@ -8,10 +8,9 @@ const Rootlayout = () => {
       <section className='bg-dust-white'>
         <div className='wrap'>        
           <div className='flex'>
-            <div className='fixed'>
               <Navbar />
-            </div>
-            <Outlet />
+              <div className='w-[220px]'></div>
+              <Outlet />
           </div>
         </div>
       </section>

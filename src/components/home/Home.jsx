@@ -10,7 +10,6 @@ import Linking from '../utilities/Linking'
 const Home = () => {
   return (
     <section className='flex'>
-      <div className='w-[240px]'></div>
       <div className='py-3 w-[640px]'>
         {/* story item list ... */}
         <div className='flex items-center'>
@@ -46,7 +45,7 @@ const Home = () => {
       </div>
 
             {/* right side list area ... */}
-        <div className='ml-5 py-3 hover:overflow-y-scroll'>
+        <div className='ml-5 py-3'>
           <div className='w-full flex items-center gap-x-[70px]'>
             <div className='flex items-center gap-x-2'>
               <div className='w-12 h-12 overflow-hidden rounded-full cursor-pointer'>

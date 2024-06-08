@@ -32,7 +32,7 @@ const Navbar = () => {
   }
 
   return (
-    <section>
+    <section className='fixed'>
       <div className='wrap'>
         <div className='w-[220px] h-[100vh] flex flex-col justify-between gap-y-5 py-8 pl-5 shadow border-r'>
           <div className='flex flex-col gap-y-10'>
