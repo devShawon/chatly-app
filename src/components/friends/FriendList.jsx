@@ -13,9 +13,9 @@ const FriendList = () => {
   const [boxShow, setBoxShow] = useState(false)
 
   return (
-    <section className='ml-auto mr-[190px]'>
-      <div className='w-[500px] mx-auto mt-20'>
-        <div>
+    <section className='ml-auto pr-[190px] pl-10 border-l'>
+      <div className='w-[500px] pt-14'>
+        <div className='p-5 shadow'>
           <Headings
             Heading={'h5'}
             className= 'text-base font-poppins text-dark-blue'
@@ -37,20 +37,20 @@ const FriendList = () => {
         </div>
         <ul className='flex flex-col-reverse mt-6'>
           {
-            [0,1,2,3,4,5,6,7,8,9,].map((item,index)=>(
-              <li key={index} className='cursor-pointer relative'>
+            [0,1,2,3,4,5,6].map((item,index)=>(
+              <li className='cursor-pointer relative'>
                 <div className='flex items-center justify-between hover:bg-pixel-white p-3 rounded-md'>
                   <div className='flex items-center gap-x-4'>
-                    <div className='w-12 h-12 bg-errigal-white rounded-full overflow-hidden cursor-pointer'></div>
+                    <div className='w-12 h-12 bg-mantine-blue rounded-full overflow-hidden cursor-pointer'></div>
                     <div>
                       <Headings 
                         Heading={'h4'}
-                        className= 'text-sm font-poppins font-medium cursor-pointer'
+                        className= 'text-xs font-poppins cursor-pointer'
                         text= 'tafsanhossain'
                       />
                       <Headings 
                         Heading={'h4'}
-                        className= 'text-md text-reval-white font-poppins cursor-pointer'
+                        className= 'text-md text-dark-blue font-medium font-poppins cursor-pointer'
                         text= 'Tafsan Hossain'
                       />
                     </div>
@@ -84,6 +84,7 @@ const FriendList = () => {
         </ul>
       </div>
     </section>
+    
   )
 }
 

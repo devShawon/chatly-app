@@ -71,12 +71,13 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            {/* userlist here.. */}
+
+            {/* Contact list here.. */}
             <div className='mt-5 flex flex-col'>
               {
                 [0,1,2,3,4,5,6,7,8].map((index)=>(
                 <div key={index} className='w-full flex items-center justify-between'>
-                  <Linking className= 'p-2 w-full hover:bg-errigal-white rounded-xl '>
+                  <Linking className= 'p-2 w-full hover:bg-cloud-white rounded-xl '>
                     <div className='flex items-center gap-x-2'>
                       <div className='relative after:absolute after:content-[""] after:bg-green-600 after:w-3 after:h-3 after:rounded-full after:bottom-[3px] after:right-[1px] after:border-2 after:border-white'>
                         <div className='w-10 h-10 overflow-hidden rounded-full cursor-pointer'>

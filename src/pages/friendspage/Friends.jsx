@@ -8,7 +8,6 @@ const Friends = () => {
     <>
         <div className='wrap flex'>
             <FriendsBar />
-            {/* <div className='w-[400px]'></div> */}
             <Outlet />
         </div>
     </>

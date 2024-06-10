@@ -31,9 +31,9 @@ const Navbar = () => {
   }
 
   return (
-    <section className=''>
+    <section className='bg-dust-white'>
       <div className='wrap'>
-        <div className='w-[220px] h-[100vh] flex flex-col justify-between gap-y-5 py-8 pl-5 shadow border-r'>
+        <div className='w-[220px] h-[100vh] flex flex-col justify-between gap-y-5 py-8 pl-5 shadow-x border-r'>
           <div className='flex flex-col gap-y-10'>
             <Headings
               Heading={'h2'}
@@ -62,7 +62,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to= '/friends' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+                <NavLink to= '/friends/home' className= 'navlistitem text-md font-poppins font-normal capitalize'>
                   <FaUserFriends className='text-2xl' />
                   friends
                 </NavLink>

@@ -24,6 +24,8 @@ export default {
         'reval-white': '#737373',
         'pixel-white': '#dbdbdb',
         'errigal-white': '#f0f2f5',
+        'sugar': '#f4f2ee',
+        'cloud-white': '#e4e6eb',
       },
       fontFamily: {
         'poppins': '"Poppins", sans-serif',

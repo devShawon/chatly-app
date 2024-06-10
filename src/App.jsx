@@ -20,6 +20,9 @@ import Profile from './pages/profile/Profile';
 import Settings from './pages/settings/Settings';
 import FriendList from './components/friends/FriendList'
 import FriendReq from './components/friends/FriendReq';
+import FriendsHome from './components/friends/FriendsHome';
+import Suggetions from './components/friends/Suggetions';
+import Birthday from './components/friends/Birthday';
 
 const App = () => {
 
@@ -35,9 +38,12 @@ const App = () => {
             <Route path='/profile' element={<Profile />} />
             <Route path='/settings' element={<Settings />} />
           </Route>
-          <Route path='/friends' element= {<Friends />}>
+          <Route element= {<Friends />}>
+            <Route path='/friends/home' element= {<FriendsHome />} />
             <Route path='/friends/list' element={<FriendList />} />
             <Route path='/friends/request' element={<FriendReq />} />
+            <Route path='/friends/suggestions' element={<Suggetions />} />
+            <Route path='/friends/birthday' element={<Birthday />} />
           </Route>
         </Route>
           <Route path='/' element={<Login />} />
