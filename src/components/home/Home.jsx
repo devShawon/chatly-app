@@ -2,9 +2,8 @@ import React from 'react'
 import Paragraph from '../utilities/Paragraph'
 import { MdPhotoLibrary } from 'react-icons/md'
 import Button from '../utilities/Button'
-import { Avatar } from 'keep-react'
 import { IoSearchOutline } from 'react-icons/io5'
-import { BsThreeDots, BsThreeDotsVertical } from 'react-icons/bs'
+import { BsThreeDots } from 'react-icons/bs'
 import Linking from '../utilities/Linking'
 
 const Home = () => {
@@ -45,7 +44,7 @@ const Home = () => {
       </div>
 
             {/* right side list area ... */}
-        <div className='ml-5 py-3'>
+        <div className='py-3'>
           <div className='w-full flex items-center gap-x-[70px]'>
             <div className='flex items-center gap-x-2'>
               <div className='w-12 h-12 overflow-hidden rounded-full cursor-pointer'>

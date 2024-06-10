@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Modal } from 'keep-react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -7,12 +7,11 @@ import { userValue } from '../../slices/userSlice';
 
 import Headings from '../utilities/Headings'
 import Button from '../utilities/Button';
-import Linking from '../utilities/Linking';
 import { MdGroups, MdHome } from "react-icons/md";
 import { GoSearch } from 'react-icons/go';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { RiMessengerLine } from 'react-icons/ri';
-import { LuActivitySquare, LuPlusSquare } from 'react-icons/lu';
+import { LuActivitySquare } from 'react-icons/lu';
 import { FaBars, FaUserAlt, FaUserFriends } from 'react-icons/fa';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { CiDark, CiSaveDown2 } from 'react-icons/ci';
@@ -32,7 +31,7 @@ const Navbar = () => {
   }
 
   return (
-    <section className='fixed'>
+    <section className=''>
       <div className='wrap'>
         <div className='w-[220px] h-[100vh] flex flex-col justify-between gap-y-5 py-8 pl-5 shadow border-r'>
           <div className='flex flex-col gap-y-10'>
@@ -104,46 +103,46 @@ const Navbar = () => {
               <div className='w-[230px] bg-[#f4f4f4] absolute bottom-[120%] left-0 shadow rounded-xl py-4 px-3'>
                 <ul className='flex flex-col gap-y-1'>
                   <li>
-                    <Linking to='/settings' className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                    <Link to='/settings' className= 'navlistitem text-sm font-poppins font-normal capitalize'>
                       <IoSettingsOutline className='text-xl' />
                       settings
-                    </Linking>
+                    </Link>
                   </li>
                   <li>
-                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                    <Link className= 'navlistitem text-sm font-poppins font-normal capitalize'>
                       <FaUserAlt className='text-md' />
                       users
-                    </Linking>
+                    </Link>
                   </li>
                   <li>
-                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                    <Link className= 'navlistitem text-sm font-poppins font-normal capitalize'>
                       <LuActivitySquare className='text-lg' />
                       your activity
-                    </Linking>
+                    </Link>
                   </li>
                   <li>
-                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                    <Link className= 'navlistitem text-sm font-poppins font-normal capitalize'>
                       <CiSaveDown2 className='text-lg' />
                       saved
-                    </Linking>
+                    </Link>
                   </li>
                   <li>
-                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                    <Link className= 'navlistitem text-sm font-poppins font-normal capitalize'>
                       <CiDark className='text-xl' />
                       switch appearance
-                    </Linking>
+                    </Link>
                   </li>
                   <li>
-                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>
+                    <Link className= 'navlistitem text-sm font-poppins font-normal capitalize'>
                       <BiMessageAltError className='text-lg' />
                       Report a problem
-                    </Linking>
+                    </Link>
                   </li>
                   <li>
-                    <Linking className= 'navlistitem text-sm font-poppins font-normal capitalize'>switch accounts</Linking>
+                    <Link className= 'navlistitem text-sm font-poppins font-normal capitalize'>switch accounts</Link>
                   </li>
                   <li onClick={()=>setIsOpen(true)}>
-                    <Linking to= '#' className= 'navlistitem text-sm font-poppins font-normal'>Log out</Linking>
+                    <Link to= '#' className= 'navlistitem text-sm font-poppins font-normal'>Log out</Link>
                   </li>
                 </ul>
               </div>
