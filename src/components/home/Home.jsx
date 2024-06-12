@@ -24,8 +24,8 @@ const Home = () => {
           }
           
         </div>
-        <div className='w-[500px] mx-auto mt-7'>
-              {/* My post box... */}
+            {/* My post box... */}
+        <div className='w-[500px] mx-auto mt-7 relative z-[-1]'>
           <div className='p-4 bg-white shadow-md rounded-xl'>
             <div className='flex items-center gap-x-3 relative after:absolute after:content-[""] after:w-full after:h-[1px] after:bg-pixel-white after:bottom-[-15px] left-0'>
               <div className='w-14 h-14 overflow-hidden rounded-full cursor-pointer'>

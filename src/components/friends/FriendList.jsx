@@ -7,10 +7,12 @@ import Paragraph from '../utilities/Paragraph'
 import { FaUserTimes } from 'react-icons/fa'
 import Input from '../utilities/Input'
 import { CiSearch } from 'react-icons/ci'
+import { FaCirclePlus } from 'react-icons/fa6'
 
 const FriendList = () => {
 
   const [boxShow, setBoxShow] = useState(false)
+  const [showCross, setShowCross] = useState(false)
 
   return (
     <section className='ml-auto pr-[190px] pl-10 border-l'>
@@ -27,12 +29,27 @@ const FriendList = () => {
             text= 'All friends'
           />
           <div className='relative mt-3'>
-            <CiSearch className='absolute left-[10px] top-[14px] text-lg font-medium' />
-            <Input 
-              className= 'py-2 px-8 border border-dark-blue rounded-3xl outline-none w-full'
-              type= 'search' 
+            {showCross ?
+            <div>
+              <FaCirclePlus onClick={()=>setShowCross(false)} className='absolute right-[10px] top-[14px] text-md text-reval-white rotate-45 cursor-pointer' />
+              <Input 
+              onClick={()=>setShowCross(true)}
+              className= 'py-2 px-5 border border-dark-blue rounded-3xl outline-none w-full'
+              type= 'text' 
               placeholder= 'search friends' 
             />
+            </div>
+              :
+            <div>
+              <CiSearch className='absolute left-[10px] top-[14px] text-lg font-medium' />
+              <Input 
+                onClick={()=>setShowCross(true)}
+                className= 'py-2 px-8 border border-dark-blue rounded-3xl outline-none w-full'
+                type= 'search' 
+                placeholder= 'search friends' 
+              />
+            </div>
+            }
           </div>
         </div>
         <ul className='flex flex-col-reverse mt-6'>

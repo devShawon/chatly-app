@@ -32,12 +32,12 @@ const App = () => {
         <Route element={<IsLoggedin />}>
           <Route element= {<Rootlayout />}>
             <Route path='/home' element={<HomePage />} />
-            <Route path='/message' element={<MessagePage />} />
             <Route path='/notification' element={<Notification />} />
             <Route path='/group' element={<Group />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/settings' element={<Settings />} />
           </Route>
+          <Route path='/message' element={<MessagePage />} />
           <Route element= {<Friends />}>
             <Route path='/friends/home' element= {<FriendsHome />} />
             <Route path='/friends/list' element={<FriendList />} />

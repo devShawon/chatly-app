@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import { Modal } from 'keep-react'
+import { Modal, Tooltip } from 'keep-react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userValue } from '../../slices/userSlice';
@@ -9,13 +9,16 @@ import Headings from '../utilities/Headings'
 import Button from '../utilities/Button';
 import { MdGroups, MdHome } from "react-icons/md";
 import { GoSearch } from 'react-icons/go';
-import { IoMdNotificationsOutline } from 'react-icons/io';
+import { IoIosArrowDown, IoMdNotificationsOutline } from 'react-icons/io';
 import { RiMessengerLine } from 'react-icons/ri';
 import { LuActivitySquare } from 'react-icons/lu';
-import { FaBars, FaUserAlt, FaUserFriends } from 'react-icons/fa';
+import { FaBars, FaRegEdit, FaUserAlt, FaUserFriends } from 'react-icons/fa';
 import { IoSettingsOutline } from 'react-icons/io5';
-import { CiDark, CiSaveDown2 } from 'react-icons/ci';
+import { CiDark, CiSaveDown2, CiSearch } from 'react-icons/ci';
 import { BiMessageAltError } from 'react-icons/bi';
+import { FaCirclePlus } from 'react-icons/fa6';
+import Input from '../utilities/Input';
+import { RxCross2 } from 'react-icons/rx';
 
 const Navbar = () => {
 
@@ -23,17 +26,18 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [showItem, setShowItem] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showCross, setShowCross] = useState(false)
+  const [isSearch, setIsSearch] = useState(false)
 
   const handleLogout = () => {
     navigate('/')
     localStorage.removeItem('loginUser')
     dispatch(userValue(null))
   }
-
   return (
-    <section className='bg-dust-white'>
+    <section className='bg-dust-white fixed'>
       <div className='wrap'>
-        <div className='w-[220px] h-[100vh] flex flex-col justify-between gap-y-5 py-8 pl-5 shadow-x border-r'>
+        <div className='w-[220px] h-[100vh] flex flex-col justify-between gap-y-5 py-8 pl-5 shadow-x border-r relative'>
           <div className='flex flex-col gap-y-10'>
             <Headings
               Heading={'h2'}
@@ -49,11 +53,11 @@ const Navbar = () => {
                   home
                   </NavLink>
               </li>
-              <li>
-                <NavLink to= 'search' className= 'navlistitem text-md font-poppins font-normal capitalize'>
+              <li onClick={()=>setIsSearch(!isSearch)} className='relative'>
+                <div className= 'navlistitem text-md font-poppins font-normal capitalize'>
                   <GoSearch className='text-2xl' />
                   search
-                </NavLink>
+                </div>
               </li>
               <li>
                 <NavLink to= '/message' className= 'navlistitem text-md font-poppins font-normal capitalize'>
@@ -100,7 +104,7 @@ const Navbar = () => {
             {/* More item list start here ... */}
             {
               showItem &&
-              <div className='w-[230px] bg-[#f4f4f4] absolute bottom-[120%] left-0 shadow rounded-xl py-4 px-3'>
+              <div className='w-[230px] bg-[#f4f4f4] absolute bottom-[120%] left-0 shadow rounded-xl py-4 px-3 z-[99999]'>
                 <ul className='flex flex-col gap-y-1'>
                   <li>
                     <Link to='/settings' className= 'navlistitem text-sm font-poppins font-normal capitalize'>
@@ -148,6 +152,101 @@ const Navbar = () => {
               </div>
             }
           </div>
+
+          {/* search area here */}
+          { isSearch  ?
+            <div className='absolute top-0 left-16 z-[999] w-[400px] h-[100vh] overflow-y-scroll p-4 rounded-lg bg-cloud-white transition-all duration-300'>
+              <div className='flex items-center justify-between'> 
+                <Headings 
+                  Heading={'h2'}
+                  className= 'text-xl font-poppins font-medium capitalize'
+                  text= 'search'
+                />
+                <RxCross2 onClick={()=>setIsSearch(false)} className='text-4xl text-dark-blue p-2 hover:bg-pixel-white rounded-full cursor-pointer' />
+              </div>
+              <div className='relative mt-8 after:absolute after:content-[""] after:w-full after:h-[1px] after:bg-pixel-white after:bottom-[-25px] left-0'>
+                {showCross ?
+                <div>
+                  <FaCirclePlus onClick={()=>setShowCross(false)} className='absolute right-[10px] top-[14px] text-md text-reval-white rotate-45 cursor-pointer' />
+                  <Input
+                  onClick={()=>setShowCross(true)}
+                  className= 'py-2 px-5 border border-dark-blue rounded-lg outline-none w-full'
+                  type= 'text' 
+                  placeholder= 'search' 
+                />
+                </div>
+                  :
+                <div>
+                  <CiSearch className='absolute left-[10px] top-[14px] text-lg font-medium' />
+                  <Input 
+                    onClick={()=>setShowCross(true)}
+                    className= 'py-2 px-8 border border-dark-blue rounded-lg outline-none w-full'
+                    type= 'search' 
+                    placeholder= 'search friends' 
+                  />
+                </div>
+                }
+              </div>
+              <div className='flex justify-between mt-10'>
+                <Headings 
+                  Heading= {'h3'}
+                  className= 'text-xs text-dark-blue font-poppins font-medium cursor-pointer'
+                  text= 'Recent'
+                />
+                <Headings 
+                  Heading= {'h3'}
+                  className= 'text-xs text-star-blue font-poppins font-medium cursor-pointer'
+                  text= 'Clear all'
+                />
+              </div>
+            </div>
+              :
+            <div className='absolute top-0 left-0 z-[999] w-0 h-[100vh] overflow-y-scroll p-0 rounded-lg bg-cloud-white transition-all duration-300'>
+              <div className='flex items-center justify-between'> 
+                <Headings 
+                  Heading={'h2'}
+                  className= 'text-xl font-poppins font-medium capitalize'
+                  text= 'search'
+                />
+                <RxCross2 onClick={()=>setIsSearch(false)} className='text-4xl text-dark-blue p-2 hover:bg-pixel-white rounded-full cursor-pointer' />
+              </div>
+              <div className='relative mt-8 after:absolute after:content-[""] after:w-full after:h-[1px] after:bg-pixel-white after:bottom-[-25px] left-0'>
+                {showCross ?
+                <div>
+                  <FaCirclePlus onClick={()=>setShowCross(false)} className='absolute right-[10px] top-[14px] text-md text-reval-white rotate-45 cursor-pointer' />
+                  <Input
+                  onClick={()=>setShowCross(true)}
+                  className= 'py-2 px-5 border border-dark-blue rounded-lg outline-none w-full'
+                  type= 'text' 
+                  placeholder= 'search' 
+                />
+                </div>
+                  :
+                <div>
+                  <CiSearch className='absolute left-[10px] top-[14px] text-lg font-medium' />
+                  <Input 
+                    onClick={()=>setShowCross(true)}
+                    className= 'py-2 px-8 border border-dark-blue rounded-lg outline-none w-full'
+                    type= 'search' 
+                    placeholder= 'search friends' 
+                  />
+                </div>
+                }
+              </div>
+              <div className='flex justify-between mt-10'>
+                <Headings 
+                  Heading= {'h3'}
+                  className= 'text-xs text-dark-blue font-poppins font-medium cursor-pointer'
+                  text= 'Recent'
+                />
+                <Headings 
+                  Heading= {'h3'}
+                  className= 'text-xs text-star-blue font-poppins font-medium cursor-pointer'
+                  text= 'Clear all'
+                />
+              </div>
+            </div>
+          }
         </div>
       </div>
 
