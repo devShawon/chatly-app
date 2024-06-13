@@ -28,11 +28,17 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showCross, setShowCross] = useState(false)
   const [isSearch, setIsSearch] = useState(false)
+  const [inputVal, setInputVal] = useState('')
 
   const handleLogout = () => {
     navigate('/')
     localStorage.removeItem('loginUser')
     dispatch(userValue(null))
+  }
+
+  const handleInputCross = (e) => {
+    setShowCross(false)
+    setInputVal('')
   }
   return (
     <section className='bg-dust-white fixed'>
@@ -167,12 +173,14 @@ const Navbar = () => {
               <div className='relative mt-8 after:absolute after:content-[""] after:w-full after:h-[1px] after:bg-pixel-white after:bottom-[-25px] left-0'>
                 {showCross ?
                 <div>
-                  <FaCirclePlus onClick={()=>setShowCross(false)} className='absolute right-[10px] top-[14px] text-md text-reval-white rotate-45 cursor-pointer' />
+                  <FaCirclePlus onClick={handleInputCross} className='absolute right-[10px] top-[14px] text-md text-reval-white rotate-45 cursor-pointer' />
                   <Input
                   onClick={()=>setShowCross(true)}
                   className= 'py-2 px-5 border border-dark-blue rounded-lg outline-none w-full'
                   type= 'text' 
                   placeholder= 'search' 
+                  value={inputVal}
+                  onChange={(e)=>setInputVal(e.target.value)}
                 />
                 </div>
                   :
@@ -182,7 +190,9 @@ const Navbar = () => {
                     onClick={()=>setShowCross(true)}
                     className= 'py-2 px-8 border border-dark-blue rounded-lg outline-none w-full'
                     type= 'search' 
-                    placeholder= 'search friends' 
+                    placeholder= 'search' 
+                    value={inputVal}
+                    onChange={(e)=>setInputVal(e.target.value)}
                   />
                 </div>
                 }
