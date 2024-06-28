@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import { Modal, Tooltip } from 'keep-react'
+import { Modal } from 'keep-react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userValue } from '../../slices/userSlice';
@@ -9,10 +9,10 @@ import Headings from '../utilities/Headings'
 import Button from '../utilities/Button';
 import { MdGroups, MdHome } from "react-icons/md";
 import { GoSearch } from 'react-icons/go';
-import { IoIosArrowDown, IoMdNotificationsOutline } from 'react-icons/io';
+import { IoMdNotificationsOutline } from 'react-icons/io';
 import { RiMessengerLine } from 'react-icons/ri';
 import { LuActivitySquare } from 'react-icons/lu';
-import { FaBars, FaRegEdit, FaUserAlt, FaUserFriends } from 'react-icons/fa';
+import { FaBars, FaUserAlt, FaUserFriends } from 'react-icons/fa';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { CiDark, CiSaveDown2, CiSearch } from 'react-icons/ci';
 import { BiMessageAltError } from 'react-icons/bi';
@@ -24,11 +24,13 @@ const Navbar = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const itemRef = useRef(null);
   const [showItem, setShowItem] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showCross, setShowCross] = useState(false)
   const [isSearch, setIsSearch] = useState(false)
   const [inputVal, setInputVal] = useState('')
+  // const [itemVisible, setItemVisible] = useState(true)
 
   const handleLogout = () => {
     navigate('/')
@@ -40,6 +42,13 @@ const Navbar = () => {
     setShowCross(false)
     setInputVal('')
   }
+
+  // useEffect((e)=>{
+  //   if (itemRef.current && !itemRef.current.contains(e.target)) {
+  //     setItemVisible(false);
+  //   }
+  // }, [])
+
   return (
     <section className='bg-dust-white fixed'>
       <div className='wrap'>
@@ -48,7 +57,7 @@ const Navbar = () => {
             <Headings
               Heading={'h2'}
               className= 'text-4xl font-arizonia font-semibold ml-3'
-              text= 'flockey'
+              text= 'Connecto'
             />
 
             {/* Navlist start here ... */}

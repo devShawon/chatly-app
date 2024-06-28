@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD-Nz36xV7tzuv2J5ceBWjTA6iwv57CfcU",
-  authDomain: "flockey-30bbf.firebaseapp.com",
-  projectId: "flockey-30bbf",
-  storageBucket: "flockey-30bbf.appspot.com",
-  messagingSenderId: "449947111305",
-  appId: "1:449947111305:web:a15277e350fbe50fd35b58"
+  apiKey: "AIzaSyCla13EK9Ji8ziUHfP9cHoQClI0IzHXIhY",
+  authDomain: "connecto-63806.firebaseapp.com",
+  projectId: "connecto-63806",
+  storageBucket: "connecto-63806.appspot.com",
+  messagingSenderId: "693777250787",
+  appId: "1:693777250787:web:767737a2bc0ae46dd608d6"
 };
 
 const app = initializeApp(firebaseConfig);

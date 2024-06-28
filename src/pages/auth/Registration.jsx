@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile  } from "firebase/auth";
 import { getDatabase, push, ref, set } from "firebase/database";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Headings from '../../components/utilities/Headings'
 import Input from '../../components/utilities/Input'
@@ -181,7 +181,7 @@ const Registration = () => {
                     }
                   </div>
                 </div>
-                <Paragraph className= 'text-sm text-center text-reval-white mt-4'>People who use our service may have uploaded your contact   information to Flockey. Learn More</Paragraph>
+                <Paragraph className= 'text-sm text-center text-reval-white mt-4'>People who use our service may have uploaded your contact   information to connecto. Learn More</Paragraph>
                 <Paragraph className= 'text-sm text-center text-reval-white mt-4'>By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</Paragraph>
                 <Button type='submit' className='w-full bg-mantine-blue hover:bg-star-blue text-white font-poppins py-2 text-md mt-5 rounded-lg font-semibold' text= 'Sign up' />
               </form>
@@ -189,7 +189,7 @@ const Registration = () => {
           </div>
           <div className='loginbox mt-3 mb-10'>
             <Paragraph className= 'text-sm font-poppins text-dark-blue'>
-              Have an Account? <Linking onClick={()=>navigate('/')} className= 'text-star-blue text-sm font-poppins font-semibold hover:text-deep-blue' text= 'Log in' />
+              Have an Account? <Link onClick={()=>navigate('/')} className= 'text-star-blue text-sm font-poppins font-semibold hover:text-deep-blue'>Log in</Link>
             </Paragraph>
           </div>
         </div>

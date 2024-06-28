@@ -6,7 +6,7 @@ import FriendsBar from '../../components/friends/FriendsBar'
 const Friends = () => {
   return (
     <>
-        <div className='wrap flex'>
+        <div className='wrap flex relative'>
             <FriendsBar />
             <Outlet />
         </div>

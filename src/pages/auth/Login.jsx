@@ -81,7 +81,7 @@ const Login = () => {
                         <Headings 
                             Heading={'h1'}
                             className= 'text-5xl font-arizonia font-semibold text-center mt-5 mb-7'
-                            text= 'flockey'
+                            text= 'Connecto'
                         />
                         {
                             showErr ? 
