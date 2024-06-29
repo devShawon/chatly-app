@@ -27,9 +27,9 @@ const MessagePage = () => {
   }
 
   return (
-    <section className=''>
+    <section>
       {/* message friend list... */}
-      <div className='fixed z-[1] w-[450px] h-[100vh] p-4 rounded-lg bg-dust-white shadow'>
+      <div className='fixed top-0 z-[1] w-[450px] h-[100vh] p-4 rounded-lg bg-dust-white shadow'>
         <FaArrowLeftLong onClick={()=>navigate(-1)} className='p-2 hover:bg-pixel-white rounded-full cursor-pointer text-4xl' />
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-x-3 cursor-pointer'> 
@@ -97,18 +97,11 @@ const MessagePage = () => {
                 <div className='flex items-center justify-between hover:bg-pixel-white p-3 rounded-md'>
                   <div className='flex items-center gap-x-4'>
                     <div className='w-12 h-12 bg-mantine-blue rounded-full overflow-hidden cursor-pointer'></div>
-                    <div>
-                      <Headings 
-                        Heading={'h4'}
-                        className= 'text-xs font-poppins cursor-pointer'
-                        text= 'tafsanhossain'
-                      />
                       <Headings 
                         Heading={'h4'}
                         className= 'text-md text-dark-blue font-medium font-poppins cursor-pointer'
                         text= 'Tafsan Hossain'
                       />
-                    </div>
                   </div>
                 </div>
               </li>
@@ -116,26 +109,27 @@ const MessagePage = () => {
           }
         </ul>
       </div>
-      {/* message box... */}
-      <div className='h-[100vh] w-[100vw] ml-[450px] px-5 fixed'>
               {/* message top bar */}
-          <div className='flex items-center justify-between py-2 border-b mr-[450px]'>
-            <div className='flex items-center gap-x-2'>
-              <div className='w-12 h-12 bg-cloud-white rounded-full'></div>
-              <Headings 
-                Heading={'h3'}
-                className='text-lg font-poppins font-medium text-dark-blue'
-                text= 'shawon_04'
-              />
-            </div>
-            <div className='flex items-center gap-x-4'>
-              <LuPhone className='text-2xl text-dark-blue cursor-pointer ' />
-              <IoVideocamOutline className='text-2xl text-dark-blue cursor-pointer ' />
-              <MdErrorOutline className='text-2xl text-dark-blue cursor-pointer ' />
-            </div>
+        <div className='h-[100vh] w-[100vw] ml-[450px] fixed top-0'>
+          <div className='flex items-center justify-between py-2 px-5 border-b mr-[450px] bg-sugar'>
+              <div className='flex items-center gap-x-2'>
+                <div className='w-12 h-12 bg-cloud-white rounded-full'></div>
+                <Headings 
+                  Heading={'h3'}
+                  className='text-lg font-poppins font-medium text-dark-blue'
+                  text= 'shawon_04'
+                />
+              </div>
+              <div className='flex items-center gap-x-4'>
+                <LuPhone className='text-2xl text-dark-blue cursor-pointer ' />
+                <IoVideocamOutline className='text-2xl text-dark-blue cursor-pointer ' />
+                <MdErrorOutline className='text-2xl text-dark-blue cursor-pointer ' />
+              </div>
           </div>
-              {/* message main box */}
-          {/* <div className='overflow-y-scroll'>
+        </div>
+                {/* message main box */}
+        <div className='msgbox h-[100vh] w-[100vw] ml-[450px] fixed top-16 px-3 overflow-scroll'>
+          <div className='mr-[450px] '>
             <div className='flex flex-col justify-center items-center'>
               <div className='h-24 w-24 bg-red-300 rounded-full overflow-hidden mt-4'></div>
               <Headings 
@@ -152,8 +146,8 @@ const MessagePage = () => {
                 <Paragraph className= 'px-5 py-[6px] bg-pixel-white rounded-2xl ' text= 'hey shawon' />
               </div>
               <div className='flex items-center justify-end gap-x-2'>
-                <div className='h-10 w-10 bg-cloud-white rounded-full overflow-hidden'></div>
                 <Paragraph className= 'px-5 py-[6px] bg-pixel-white rounded-2xl ' text= 'hey shawon' />
+                <div className='h-10 w-10 bg-cloud-white rounded-full overflow-hidden'></div>
               </div>
               <div className='flex items-center gap-x-2'>
                 <div className='h-10 w-10 bg-cloud-white rounded-full overflow-hidden'></div>
@@ -204,10 +198,8 @@ const MessagePage = () => {
                 <Paragraph className= 'px-5 py-[6px] bg-pixel-white rounded-2xl ' text= 'hey shawon' />
               </div>
             </div>
-          </div> */}
-              {/* message input footer */}
-          <div></div>
-      </div>
+          </div>
+          </div>
     </section>
   )
 }

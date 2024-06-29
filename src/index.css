@@ -22,4 +22,5 @@
     .navlistitem {
         @apply flex items-center gap-x-5 p-3 hover:bg-pixel-white cursor-pointer
     }
-  }
+}
+

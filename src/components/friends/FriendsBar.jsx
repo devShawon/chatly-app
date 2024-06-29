@@ -14,7 +14,7 @@ import { LuActivitySquare } from 'react-icons/lu'
 import { CiDark, CiSaveDown2, CiSearch } from 'react-icons/ci'
 import { BiMessageAltError } from 'react-icons/bi'
 import { RxCross2 } from 'react-icons/rx'
-import { FaCirclePlus } from 'react-icons/fa6'
+import { FaArrowLeftLong, FaCirclePlus } from 'react-icons/fa6'
 import { Modal } from 'keep-react'
 import Input from '../utilities/Input'
 import Button from '../utilities/Button'
@@ -40,7 +40,7 @@ const FriendsBar = () => {
 
   return (
     <>
-      <div className='bg-dust-white fixed z-999'>
+      {/* <div className='bg-dust-white fixed'>
         <div className='wrap'>
           <div className='w-[60px] h-[100vh] flex flex-col justify-between gap-y-5 py-8 shadow-x border-r relative'>
             <div className='flex flex-col gap-y-10'>
@@ -50,7 +50,7 @@ const FriendsBar = () => {
                 </div>
               </div>
 
-              {/* Navlist start here ... */}
+              Navlist start here ...
               <ul className='flex flex-col gap-y-1'>
                 <li>
                   <NavLink to= '/home' className= 'navlistitem text-md font-poppins font-normal capitalize'>
@@ -94,7 +94,7 @@ const FriendsBar = () => {
                 <FaBars className='text-xl' />
               </div>
 
-              {/* More item list start here ... */}
+              More item list start here ...
               {
                 showItem &&
                 <div className='w-[230px] bg-[#f4f4f4] absolute bottom-[120%] left-0 shadow rounded-xl py-4 px-3 z-[99999]'>
@@ -146,7 +146,7 @@ const FriendsBar = () => {
               }
             </div>
 
-            {/* search area here */}
+            search area here
             { isSearch  ?
               <div className='absolute top-0 left-16 z-[999] w-[400px] h-[100vh] overflow-y-scroll p-4 rounded-lg bg-cloud-white transition-all duration-300'>
                 <div className='flex items-center justify-between'> 
@@ -247,7 +247,7 @@ const FriendsBar = () => {
           </div>
         </div>
 
-        {/* modal here */}
+        modal here
         <Modal isOpen={isOpen} onClose={()=>setIsOpen(false)}>
           <Modal.Body className="space-y-3">
             <Modal.Content>
@@ -263,21 +263,24 @@ const FriendsBar = () => {
             </Modal.Footer>
           </Modal.Body>
         </Modal>
-      </div>
-      <div className='fixed w-[400px] shadow bg-white h-[100vh] ml-[60px] z-1'>
+      </div> */}
+      <div className='fixed w-[400px] shadow bg-white h-[100vh]'>
         <div className=''>
           <Headings
             Heading={'h2'}
             className= 'text-4xl font-arizonia font-semibold p-5 shadow'
-            text= 'flockey'
+            text= 'Connecto'
           />
         </div>
         <div className='mt-8 flex items-center justify-between'>
-          <Headings 
-            Heading= {'h3'}
-            className= 'text-xl font-poppins capitalize ml-5'
-            text= 'friends'
-          />
+          <div className='flex items-center gap-x-4 ml-5'>
+            <FaArrowLeftLong onClick={()=>navigate('/home')} className='p-2 text-4xl hover:bg-pixel-white rounded-full cursor-pointer' />  
+            <Headings 
+              Heading= {'h3'}
+              className= 'text-xl font-poppins capitalize'
+              text= 'friends'
+            />
+          </div>
           <div className='p-3 bg-errigal-white hover:bg-pixel-white rounded-full mr-5 cursor-pointer'>
             <IoSettings className='text-xl text-dark-blue' />
           </div>
